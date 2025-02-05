@@ -148,6 +148,7 @@ def download_attendance():
         logging.error(f"Error downloading attendance: {e}")
         messagebox.showerror("Error", f"Failed to download attendance: {e}")
 
+
 # Function to start face recognition
 def start_face_recognition():
     global is_running, video_capture
@@ -158,9 +159,11 @@ def start_face_recognition():
 
     if platform.system() == 'Darwin':  # macOS
         try:
-            subprocess.run(["codesign", "-d", "--entitlements", ":-", "/Applications/Python 3.x/Python Launcher.app"], check=True, capture_output=True)
+            subprocess.run(["codesign", "-d", "--entitlements", ":-", "/Applications/Python 3.x/Python Launcher.app"],
+                           check=True, capture_output=True)
         except subprocess.CalledProcessError:
-            messagebox.showwarning("Warning", "This application may not have the necessary permissions to access the camera. Please check your privacy settings.")
+            messagebox.showwarning("Warning",
+                                   "This application may not have the necessary permissions to access the camera. Please check your privacy settings.")
 
     video_capture = cv2.VideoCapture(0)
     if not video_capture.isOpened():
@@ -198,6 +201,7 @@ def start_face_recognition():
                         mark_attendance(name)
                         attendance_session.add(name)
                         logging.info(f"Recognized and marked attendance for {name}")
+
                 top *= 4
                 right *= 4
                 bottom *= 4
@@ -217,6 +221,7 @@ def start_face_recognition():
     video_capture.release()
     cv2.destroyAllWindows()
     is_running = False  # Reset the flag when the loop ends
+
 
 # Function to stop face recognition
 def stop_face_recognition():
