@@ -1,0 +1,22 @@
+2025-02-05 14:18:12,245 - INFO - Loaded face: rashed
+2025-02-05 14:18:12,246 - INFO - Known faces loaded successfully
+2025-02-05 14:24:59,702 - INFO - Loaded face: rashed
+2025-02-05 14:24:59,702 - INFO - Known faces loaded successfully
+2025-02-05 14:25:10,088 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-05 14:26:50,064 - INFO - Loaded face: rashed
+2025-02-05 14:26:50,065 - INFO - Known faces loaded successfully
+2025-02-05 14:27:00,336 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-05 14:27:07,271 - INFO - Marked attendance for rashed
+2025-02-05 14:27:07,271 - INFO - Recognized and marked attendance for rashed
+2025-02-05 14:27:47,543 - INFO - Loaded face: rashed
+2025-02-05 14:27:47,543 - INFO - Known faces loaded successfully
+2025-02-05 14:27:56,677 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-05 14:28:08,049 - INFO - Recognized and marked attendance for rashed
+2025-02-05 14:28:31,318 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-05 14:28:57,113 - INFO - Loaded face: rashed
+2025-02-05 14:28:57,113 - INFO - Known faces loaded successfully
+2025-02-05 14:29:04,618 - INFO - Recognized and marked attendance for rashed
+2025-02-05 14:29:41,376 - INFO - Loaded face: rashed
+2025-02-05 14:29:41,377 - INFO - Known faces loaded successfully
+2025-02-05 14:29:47,044 - INFO - Marked attendance for rashed
+2025-02-05 14:29:47,044 - INFO - Recognized and marked attendance for rashed
