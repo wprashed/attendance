@@ -76,3 +76,8 @@
 2025-02-05 15:18:46,664 - INFO - Loaded face: Parag Das
 2025-02-05 15:18:46,664 - INFO - Known faces loaded successfully
 2025-02-05 15:18:52,736 - INFO - Recognized and marked attendance for rashed
+2025-02-05 15:22:51,125 - INFO - Loaded face: rashed
+2025-02-05 15:22:51,205 - INFO - Loaded face: Parag Das
+2025-02-05 15:22:51,205 - INFO - Known faces loaded successfully
+2025-02-05 15:22:57,269 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 15:22:58,140 - INFO - Recognized and marked attendance for rashed
