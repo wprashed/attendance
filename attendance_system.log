@@ -67,3 +67,12 @@
 2025-02-05 15:06:44,162 - INFO - Loaded face: rashed
 2025-02-05 15:06:44,237 - INFO - Loaded face: Parag Das
 2025-02-05 15:06:44,237 - INFO - Known faces loaded successfully
+2025-02-05 15:15:35,046 - INFO - Loaded face: rashed
+2025-02-05 15:15:35,125 - INFO - Loaded face: Parag Das
+2025-02-05 15:15:35,125 - INFO - Known faces loaded successfully
+2025-02-05 15:15:41,643 - INFO - Marked attendance for rashed
+2025-02-05 15:15:43,795 - INFO - Recognized and marked attendance for rashed
+2025-02-05 15:18:46,588 - INFO - Loaded face: rashed
+2025-02-05 15:18:46,664 - INFO - Loaded face: Parag Das
+2025-02-05 15:18:46,664 - INFO - Known faces loaded successfully
+2025-02-05 15:18:52,736 - INFO - Recognized and marked attendance for rashed
