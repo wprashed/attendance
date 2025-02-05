@@ -50,15 +50,29 @@ def load_known_faces():
 # Function to mark attendance in a CSV file
 def mark_attendance(name):
     try:
+        now = datetime.now()
+        timestamp = now.strftime('%Y-%m-%d %H:%M:%S')
         with open('attendance.csv', 'r+') as f:
             lines = f.readlines()
             recorded_names = [line.split(',')[0] for line in lines]
             if name not in recorded_names:
-                now = datetime.now()
-                timestamp = now.strftime('%Y-%m-%d %H:%M:%S')
                 f.writelines(f'\n{name},{timestamp}')
                 logging.info(f"Marked attendance for {name}")
-                messagebox.showinfo("Success", f"Attendance marked for {name}")  # Show success message
+                messagebox.showinfo("Success", f"Attendance marked for {name} at {timestamp}")
+            else:
+                # Find the last attendance for the same user and check time difference
+                for line in lines:
+                    stored_name, stored_time = line.strip().split(',')
+                    if stored_name == name:
+                        last_time = datetime.strptime(stored_time, '%Y-%m-%d %H:%M:%S')
+                        time_diff = (now - last_time).total_seconds()
+                        if time_diff < 60:
+                            messagebox.showinfo("Duplicate Attendance", f"Attendance already marked for {name} at {stored_time}")
+                        else:
+                            f.writelines(f'\n{name},{timestamp}')
+                            logging.info(f"Marked attendance for {name}")
+                            messagebox.showinfo("Success", f"Attendance marked for {name} at {timestamp}")
+                        return
     except FileNotFoundError:
         with open('attendance.csv', 'w') as f:
             f.write("Name,Timestamp\n")
@@ -156,8 +170,6 @@ def start_face_recognition():
         return
 
     attendance_session = set()
-    frame_count = 0
-    last_reset = time.time()
 
     while is_running:  # Use the global flag to control the loop
         try:
@@ -167,19 +179,6 @@ def start_face_recognition():
                 video_capture.release()
                 time.sleep(1)
                 video_capture = cv2.VideoCapture(0)
-                continue
-
-            frame_count += 1
-            if frame_count % 10 != 0:  # Process every 10th frame to reduce CPU usage
-                continue
-
-            current_time = time.time()
-            if current_time - last_reset > 300:  # Reset every 5 minutes
-                logging.info("Performing periodic camera reset")
-                video_capture.release()
-                time.sleep(1)
-                video_capture = cv2.VideoCapture(0)
-                last_reset = current_time
                 continue
 
             small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
