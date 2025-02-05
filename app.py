@@ -150,7 +150,7 @@ def download_attendance():
 
 # Function to start face recognition
 def start_face_recognition():
-    global is_running
+    global is_running, video_capture
     if is_running:
         messagebox.showwarning("Warning", "Attendance is already running.")
         return
@@ -220,8 +220,12 @@ def start_face_recognition():
 
 # Function to stop face recognition
 def stop_face_recognition():
-    global is_running
+    global is_running, video_capture
     is_running = False
+    if video_capture.isOpened():
+        video_capture.release()  # Ensure video capture is released
+        logging.info("Camera released successfully")
+    cv2.destroyAllWindows()  # Close any open windows
     logging.info("Attendance stopped manually")
     messagebox.showinfo("Info", "Attendance has been stopped.")
 
