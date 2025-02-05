@@ -109,21 +109,49 @@ def download_attendance():
         messagebox.showinfo("Info", "No attendance records found.")
 
 # Start Face Recognition
+import time
+
 def start_face_recognition():
     video_capture = cv2.VideoCapture(0)
     if not video_capture.isOpened():
         messagebox.showerror("Error", "Unable to access the camera.")
         return
 
+    # Set lower resolution for better performance
+    video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)  # Set width to 640 pixels
+    video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)  # Set height to 480 pixels
+
+    frame_count = 0  # To skip frames
     while True:
         ret, frame = video_capture.read()
         if not ret:
             print("Failed to grab frame. Retrying...")
             continue
 
+        frame_count += 1
+        if frame_count % 3 != 0:  # Process every 3rd frame
+            continue
+
         rgb_frame = frame[:, :, ::-1]
-        face_locations = face_recognition.face_locations(rgb_frame)
-        face_encodings = face_recognition.face_encodings(rgb_frame, face_locations)
+
+        # Debug: Measure time for face detection
+        start_time = time.time()
+        face_locations = face_recognition.face_locations(rgb_frame, model="hog")  # Use HOG for faster detection
+        print(f"Face detection took {time.time() - start_time:.2f} seconds")
+        print(f"Detected {len(face_locations)} face(s).")
+
+        if len(face_locations) == 0:
+            print("No faces detected. Skipping encoding.")
+            continue
+
+        # Debug: Measure time for face encoding
+        start_time = time.time()
+        try:
+            face_encodings = face_recognition.face_encodings(rgb_frame, known_face_locations=face_locations)
+        except Exception as e:
+            print(f"Error during face encoding: {e}")
+            continue
+        print(f"Face encoding took {time.time() - start_time:.2f} seconds")
 
         for (top, right, bottom, left), face_encoding in zip(face_locations, face_encodings):
             matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
@@ -131,9 +159,17 @@ def start_face_recognition():
 
             face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
             best_match_index = np.argmin(face_distances)
-            if matches[best_match_index]:
+
+            # Debug: Print matching details
+            print(f"Best match index: {best_match_index}, Matches: {matches}, Face distances: {face_distances}")
+
+            threshold = 0.6  # Adjust threshold if needed
+            if face_distances[best_match_index] <= threshold:
                 name = known_face_names[best_match_index]
                 mark_attendance(name)
+                print(f"Attendance marked for {name}.")
+            else:
+                print("No match found for the detected face.")
 
             cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
             cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
