@@ -81,3 +81,96 @@
 2025-02-05 15:22:51,205 - INFO - Known faces loaded successfully
 2025-02-05 15:22:57,269 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
 2025-02-05 15:22:58,140 - INFO - Recognized and marked attendance for rashed
+2025-02-05 15:25:12,866 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-05 15:26:47,206 - INFO - Loaded face: rashed
+2025-02-05 15:26:47,284 - INFO - Loaded face: Parag Das
+2025-02-05 15:26:47,285 - INFO - Known faces loaded successfully
+2025-02-05 15:26:52,548 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 15:26:59,358 - INFO - Recognized and marked attendance for rashed
+2025-02-05 15:27:31,183 - INFO - Loaded face: rashed
+2025-02-05 15:27:31,262 - INFO - Loaded face: Parag Das
+2025-02-05 15:27:31,262 - INFO - Known faces loaded successfully
+2025-02-05 15:27:42,515 - INFO - Marked attendance for rashed
+2025-02-05 15:27:44,789 - INFO - Recognized and marked attendance for rashed
+2025-02-05 15:32:01,348 - INFO - Loaded face: rashed
+2025-02-05 15:32:01,438 - INFO - Loaded face: Parag Das
+2025-02-05 15:32:01,438 - INFO - Known faces loaded successfully
+2025-02-05 15:32:17,433 - INFO - Loaded face: rashed
+2025-02-05 15:32:20,817 - INFO - Loaded face: Rifat Haque
+2025-02-05 15:32:20,901 - INFO - Loaded face: Parag Das
+2025-02-05 15:32:22,675 - INFO - Registered new user: Rifat Haque
+2025-02-05 15:32:28,175 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 15:32:29,151 - INFO - Recognized and marked attendance for rashed
+2025-02-05 15:32:30,618 - INFO - Marked attendance for Rifat Haque
+2025-02-05 15:32:32,654 - INFO - Recognized and marked attendance for Rifat Haque
+2025-02-05 15:33:11,959 - INFO - Loaded face: rashed
+2025-02-05 15:33:15,397 - INFO - Loaded face: Rifat Haque
+2025-02-05 15:33:15,484 - INFO - Loaded face: Parag Das
+2025-02-05 15:33:15,484 - INFO - Known faces loaded successfully
+2025-02-05 15:33:20,743 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 15:33:21,853 - INFO - Recognized and marked attendance for rashed
+2025-02-05 15:33:22,010 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 15:33:23,135 - INFO - Recognized and marked attendance for Rifat Haque
+2025-02-05 15:33:45,093 - INFO - Marked attendance for Parag Das
+2025-02-05 15:33:48,261 - INFO - Recognized and marked attendance for Parag Das
+2025-02-05 15:41:49,808 - INFO - Loaded face: rashed
+2025-02-05 15:41:53,171 - INFO - Loaded face: Rifat Haque
+2025-02-05 15:41:53,253 - INFO - Loaded face: Parag Das
+2025-02-05 15:41:53,253 - INFO - Known faces loaded successfully
+2025-02-05 15:42:00,015 - INFO - Marked attendance for rashed
+2025-02-05 15:42:02,696 - INFO - Recognized and marked attendance for rashed
+2025-02-05 15:42:12,967 - INFO - Marked attendance for Parag Das
+2025-02-05 15:42:16,044 - INFO - Recognized and marked attendance for Parag Das
+2025-02-05 15:44:07,770 - INFO - Loaded face: rashed
+2025-02-05 15:44:11,264 - INFO - Loaded face: Rifat Haque
+2025-02-05 15:44:11,349 - INFO - Loaded face: Parag Das
+2025-02-05 15:44:11,349 - INFO - Known faces loaded successfully
+2025-02-05 15:44:21,868 - INFO - Loaded face: rashed
+2025-02-05 15:44:22,524 - INFO - Loaded face: rashed
+2025-02-05 15:44:25,927 - INFO - Loaded face: Rifat Haque
+2025-02-05 15:44:26,013 - INFO - Loaded face: Parag Das
+2025-02-05 15:44:27,910 - INFO - Registered new user: RASHED
+2025-02-05 15:44:50,108 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 15:44:51,274 - INFO - Recognized and marked attendance for rashed
+2025-02-05 15:46:24,336 - INFO - Loaded face: rashed
+2025-02-05 15:46:24,996 - INFO - Loaded face: rashed
+2025-02-05 15:46:28,488 - INFO - Loaded face: Rifat Haque
+2025-02-05 15:46:28,572 - INFO - Loaded face: Parag Das
+2025-02-05 15:46:28,572 - INFO - Known faces loaded successfully
+2025-02-05 15:46:35,538 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 15:46:36,388 - INFO - Recognized and marked attendance for rashed
+2025-02-05 15:51:08,858 - INFO - Loaded face: rashed
+2025-02-05 15:51:09,531 - INFO - Loaded face: rashed
+2025-02-05 15:51:13,003 - INFO - Loaded face: Rifat Haque
+2025-02-05 15:51:13,089 - INFO - Loaded face: Parag Das
+2025-02-05 15:51:13,089 - INFO - Known faces loaded successfully
+2025-02-05 16:07:47,452 - INFO - Loaded face: rashed
+2025-02-05 16:07:48,119 - INFO - Loaded face: rashed
+2025-02-05 16:07:51,582 - INFO - Loaded face: Rifat Haque
+2025-02-05 16:07:51,672 - INFO - Loaded face: Parag Das
+2025-02-05 16:07:51,672 - INFO - Known faces loaded successfully
+2025-02-05 16:07:59,311 - INFO - Marked attendance for rashed
+2025-02-05 16:08:01,019 - INFO - Recognized and marked attendance for rashed
+2025-02-05 16:10:00,178 - INFO - Loaded face: rashed
+2025-02-05 16:10:00,847 - INFO - Loaded face: rashed
+2025-02-05 16:10:04,221 - INFO - Loaded face: Rifat Haque
+2025-02-05 16:10:04,306 - INFO - Loaded face: Parag Das
+2025-02-05 16:10:04,306 - INFO - Known faces loaded successfully
+2025-02-05 16:10:11,463 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 16:10:13,134 - INFO - Recognized and marked attendance for rashed
+2025-02-05 16:14:05,047 - INFO - Loaded face: rashed
+2025-02-05 16:14:05,772 - INFO - Loaded face: rashed
+2025-02-05 16:14:09,146 - INFO - Loaded face: Rifat Haque
+2025-02-05 16:14:09,228 - INFO - Loaded face: Parag Das
+2025-02-05 16:14:09,228 - INFO - Known faces loaded successfully
+2025-02-05 16:14:15,703 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 16:14:16,798 - INFO - Recognized and marked attendance for rashed
+2025-02-05 16:14:36,583 - INFO - Loaded face: rashed
+2025-02-05 16:14:37,233 - INFO - Loaded face: rashed
+2025-02-05 16:14:40,637 - INFO - Loaded face: Rifat Haque
+2025-02-05 16:14:40,721 - INFO - Loaded face: Parag Das
+2025-02-05 16:14:40,721 - INFO - Known faces loaded successfully
+2025-02-05 16:14:45,289 - INFO - Marked attendance for rashed
+2025-02-05 16:14:46,566 - INFO - Recognized and marked attendance for rashed
+2025-02-05 16:14:51,689 - INFO - Marked attendance for Parag Das
+2025-02-05 16:14:56,268 - INFO - Recognized and marked attendance for Parag Das
