@@ -244,4 +244,3 @@ except Exception as e:
     messagebox.showerror("Error", f"Failed to load known faces: {e}")
 
 root.mainloop()
-
