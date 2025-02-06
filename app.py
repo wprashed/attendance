@@ -8,8 +8,6 @@ from tkinter import filedialog, messagebox, ttk
 import csv
 import logging
 import threading
-import platform
-import subprocess
 from PIL import Image, ImageTk
 
 # Set up logging
@@ -148,26 +146,6 @@ def view_attendance():
         logging.error(f"Error viewing attendance: {e}")
         messagebox.showerror("Error", f"Failed to view attendance: {e}")
 
-# Function to download attendance as CSV
-def download_attendance():
-    save_path = filedialog.asksaveasfilename(
-        defaultextension=".csv",
-        filetypes=[("CSV Files", "*.csv")],
-        title="Save Attendance As"
-    )
-    if not save_path:
-        return
-    try:
-        with open("attendance.csv", "r") as source, open(save_path, "w") as target:
-            target.write(source.read())
-        messagebox.showinfo("Success", f"Attendance downloaded to {save_path}")
-        logging.info(f"Attendance downloaded to {save_path}")
-    except FileNotFoundError:
-        messagebox.showinfo("Info", "No attendance records found.")
-    except Exception as e:
-        logging.error(f"Error downloading attendance: {e}")
-        messagebox.showerror("Error", f"Failed to download attendance: {e}")
-
 # Function to start face recognition
 def start_face_recognition():
     global is_running, video_capture, camera_label
@@ -177,14 +155,7 @@ def start_face_recognition():
 
     is_running = True
 
-    if platform.system() == 'Darwin':  # macOS
-        try:
-            subprocess.run(["codesign", "-d", "--entitlements", ":-", "/Applications/Python 3.x/Python Launcher.app"],
-                           check=True, capture_output=True)
-        except subprocess.CalledProcessError:
-            messagebox.showwarning("Warning",
-                                   "This application may not have the necessary permissions to access the camera. Please check your privacy settings.")
-
+    # Open the camera
     video_capture = cv2.VideoCapture(0)
     if not video_capture.isOpened():
         messagebox.showerror("Error", "Unable to access the camera.")
@@ -192,9 +163,14 @@ def start_face_recognition():
         is_running = False
         return
 
+    # Create a frame to hold the camera feed
+    global camera_frame
+    camera_frame = tk.Frame(root, width=640, height=480, bg="black")
+    camera_frame.pack(pady=10)
+
     # Create a label to display the camera feed
     global camera_label
-    camera_label = tk.Label(root)
+    camera_label = tk.Label(camera_frame, bg="black")
     camera_label.pack()
 
     # Start updating the camera feed
@@ -208,11 +184,23 @@ def update_camera_feed():
     try:
         ret, frame = video_capture.read()
         if ret:
-            # Resize the frame for better performance
-            small_frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
-            rgb_small_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
+            # Resize the frame to fit the GUI (e.g., 640x480)
+            target_width, target_height = 640, 480
+            aspect_ratio = frame.shape[1] / frame.shape[0]
+            if frame.shape[1] > target_width or frame.shape[0] > target_height:
+                new_width = int(target_height * aspect_ratio)
+                new_height = target_height
+                if new_width > target_width:
+                    new_width = target_width
+                    new_height = int(target_width / aspect_ratio)
+                frame = cv2.resize(frame, (new_width, new_height))
 
-            # Perform face recognition on the frame
+            # Convert the frame to RGB for tkinter compatibility
+            rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+            # Perform face recognition on the resized frame
+            small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)  # Downscale for faster processing
+            rgb_small_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
             face_locations = face_recognition.face_locations(rgb_small_frame)
             face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
 
@@ -228,16 +216,16 @@ def update_camera_feed():
                         attendance_session.add(name)
                         logging.info(f"Recognized and marked attendance for {name}")
 
-                # Draw rectangles and labels on the frame
-                top *= 2
-                right *= 2
-                bottom *= 2
-                left *= 2
+                # Scale back the face locations to match the resized frame
+                top *= 4
+                right *= 4
+                bottom *= 4
+                left *= 4
                 cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
                 cv2.putText(frame, name, (left, top - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 2)
 
             # Convert the frame to an image compatible with tkinter
-            img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+            img = Image.fromarray(rgb_frame)
             imgtk = ImageTk.PhotoImage(image=img)
 
             # Update the label with the new frame
@@ -251,18 +239,59 @@ def update_camera_feed():
 
 # Function to stop face recognition
 def stop_face_recognition():
-    global is_running, video_capture, camera_label
+    global is_running, video_capture, camera_label, camera_frame
     is_running = False
     if video_capture.isOpened():
         video_capture.release()  # Ensure video capture is released
         logging.info("Camera released successfully")
 
-    # Remove the camera feed label
-    if 'camera_label' in globals():
+    # Remove the camera feed frame and label
+    if 'camera_frame' in globals():
+        camera_frame.pack_forget()
         camera_label.pack_forget()
 
     logging.info("Attendance stopped manually")
     messagebox.showinfo("Info", "Attendance has been stopped.")
+
+def download_attendance():
+    # Open a dialog to select the save location
+    save_path = filedialog.asksaveasfilename(
+        defaultextension=".csv",
+        filetypes=[("CSV Files", "*.csv")],
+        title="Save Attendance As"
+    )
+    if not save_path:  # User canceled the dialog
+        return
+
+    try:
+        # Check if the attendance file exists
+        if not os.path.exists("attendance.csv"):
+            messagebox.showinfo("Info", "No attendance records found.")
+            logging.info("No attendance records found during download.")
+            return
+
+        # Read the attendance file and write its content to the target file
+        with open("attendance.csv", "r") as source_file:
+            content = source_file.read()
+
+        with open(save_path, "w") as target_file:
+            target_file.write(content)
+
+        # Notify the user that the download was successful
+        messagebox.showinfo("Success", f"Attendance downloaded to {save_path}")
+        logging.info(f"Attendance downloaded to {save_path}")
+
+    except FileNotFoundError:
+        messagebox.showerror("Error", "Attendance file not found.")
+        logging.error("Attendance file not found during download.")
+
+    except PermissionError:
+        messagebox.showerror("Error", "Permission denied. Please check the save location.")
+        logging.error("Permission denied during attendance download.")
+
+    except Exception as e:
+        messagebox.showerror("Error", f"Failed to download attendance: {e}")
+        logging.error(f"Error downloading attendance: {e}")
 
 # GUI Setup
 root = tk.Tk()
@@ -270,26 +299,32 @@ root.title("Face Recognition Attendance System")
 root.geometry("800x600")
 
 # Register User Section
-tk.Label(root, text="Register New User", font=("Arial", 14)).pack(pady=10)
-tk.Label(root, text="Name:").pack()
-name_entry = tk.Entry(root)
-name_entry.pack()
-register_button = tk.Button(root, text="Register", command=register_user)
-register_button.pack(pady=5)
+register_frame = tk.Frame(root, padx=10, pady=10)
+register_frame.pack(fill="x")
+tk.Label(register_frame, text="Register New User", font=("Arial", 12)).pack(anchor="w")
+tk.Label(register_frame, text="Name:").pack(anchor="w")
+name_entry = tk.Entry(register_frame)
+name_entry.pack(fill="x", pady=8)
+register_button = tk.Button(register_frame, text="Register", command=register_user)
+register_button.pack(fill="x", pady=8)
 
-# View Attendance Section
-view_button = tk.Button(root, text="View Attendance", command=view_attendance)
-view_button.pack(pady=5)
+# Attendance Controls Section
+controls_frame = tk.Frame(root, padx=5, pady=5)
+controls_frame.pack(fill="x")
+view_button = tk.Button(controls_frame, text="View Attendance List's", command=view_attendance)
+view_button.pack(side="left", padx=8)
+download_button = tk.Button(controls_frame, text="Download Attendance List's", command=lambda: None)
+download_button.pack(side="left", padx=8)
+start_button = tk.Button(controls_frame, text="Start Taking Attendance", command=start_face_recognition)
+start_button.pack(side="left", padx=8)
+stop_button = tk.Button(controls_frame, text="Stop Taking Attendance", command=stop_face_recognition)
+stop_button.pack(side="left", padx=8)
 
-# Download Attendance Section
-download_button = tk.Button(root, text="Download Attendance", command=download_attendance)
-download_button.pack(pady=5)
-
-# Start and Stop Attendance Buttons
-start_button = tk.Button(root, text="Start Attendance", command=start_face_recognition)
-start_button.pack(pady=5)
-stop_button = tk.Button(root, text="Stop Attendance", command=stop_face_recognition)
-stop_button.pack(pady=5)
+# Initialize global variables
+video_capture = None
+camera_label = None
+camera_frame = None
+attendance_session = set()
 
 try:
     load_known_faces()
@@ -297,8 +332,5 @@ try:
 except Exception as e:
     logging.error(f"Error loading known faces: {e}")
     messagebox.showerror("Error", f"Failed to load known faces: {e}")
-
-# Global variable for attendance session
-attendance_session = set()
 
 root.mainloop()
