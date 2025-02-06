@@ -7,9 +7,10 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 import csv
 import logging
-import time
+import threading
 import platform
 import subprocess
+from PIL import Image, ImageTk
 
 # Set up logging
 logging.basicConfig(filename='attendance_system.log', level=logging.INFO,
@@ -123,18 +124,24 @@ def register_user():
 def view_attendance():
     attendance_window = tk.Toplevel(root)
     attendance_window.title("Attendance Records")
-    attendance_window.geometry("600x400")
-    columns = ("Name", "Timestamp")
+    attendance_window.geometry("800x400")
+
+    columns = ("Name", "Entry Time", "Exit Time", "Status")
     tree = ttk.Treeview(attendance_window, columns=columns, show="headings")
     tree.heading("Name", text="Name")
-    tree.heading("Timestamp", text="Timestamp")
+    tree.heading("Entry Time", text="Entry Time")
+    tree.heading("Exit Time", text="Exit Time")
+    tree.heading("Status", text="Status")
     tree.pack(fill="both", expand=True)
+
     try:
         with open("attendance.csv", "r") as f:
             reader = csv.reader(f)
             next(reader)  # Skip header
             for row in reader:
-                tree.insert("", "end", values=row)
+                name, entry_time, exit_time = row
+                status = "Complete Shift" if exit_time else "Incomplete Shift"
+                tree.insert("", "end", values=(name, entry_time, exit_time, status))
     except FileNotFoundError:
         messagebox.showinfo("Info", "No attendance records found.")
     except Exception as e:
@@ -161,13 +168,13 @@ def download_attendance():
         logging.error(f"Error downloading attendance: {e}")
         messagebox.showerror("Error", f"Failed to download attendance: {e}")
 
-
 # Function to start face recognition
 def start_face_recognition():
-    global is_running, video_capture
+    global is_running, video_capture, camera_label
     if is_running:
         messagebox.showwarning("Warning", "Attendance is already running.")
         return
+
     is_running = True
 
     if platform.system() == 'Darwin':  # macOS
@@ -185,21 +192,27 @@ def start_face_recognition():
         is_running = False
         return
 
-    attendance_session = set()
+    # Create a label to display the camera feed
+    global camera_label
+    camera_label = tk.Label(root)
+    camera_label.pack()
 
-    while is_running:  # Use the global flag to control the loop
-        try:
-            ret, frame = video_capture.read()
-            if not ret:
-                logging.warning("Failed to capture frame. Attempting to reset camera...")
-                video_capture.release()
-                time.sleep(1)
-                video_capture = cv2.VideoCapture(0)
-                continue
+    # Start updating the camera feed
+    update_camera_feed()
 
-            small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
+def update_camera_feed():
+    global is_running, video_capture, camera_label
+    if not is_running:
+        return
+
+    try:
+        ret, frame = video_capture.read()
+        if ret:
+            # Resize the frame for better performance
+            small_frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
             rgb_small_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
 
+            # Perform face recognition on the frame
             face_locations = face_recognition.face_locations(rgb_small_frame)
             face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
 
@@ -215,42 +228,46 @@ def start_face_recognition():
                         attendance_session.add(name)
                         logging.info(f"Recognized and marked attendance for {name}")
 
-                top *= 4
-                right *= 4
-                bottom *= 4
-                left *= 4
+                # Draw rectangles and labels on the frame
+                top *= 2
+                right *= 2
+                bottom *= 2
+                left *= 2
                 cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
                 cv2.putText(frame, name, (left, top - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 2)
 
-            cv2.imshow('Face Recognition Attendance System', frame)
+            # Convert the frame to an image compatible with tkinter
+            img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+            imgtk = ImageTk.PhotoImage(image=img)
 
-        except Exception as e:
-            logging.error(f"Error in face recognition loop: {e}")
-            time.sleep(1)  # Wait a bit before trying again
+            # Update the label with the new frame
+            camera_label.imgtk = imgtk
+            camera_label.configure(image=imgtk)
 
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-
-    video_capture.release()
-    cv2.destroyAllWindows()
-    is_running = False  # Reset the flag when the loop ends
-
+        # Schedule the next frame update
+        root.after(10, update_camera_feed)  # Update every 10ms
+    except Exception as e:
+        logging.error(f"Error updating camera feed: {e}")
 
 # Function to stop face recognition
 def stop_face_recognition():
-    global is_running, video_capture
+    global is_running, video_capture, camera_label
     is_running = False
     if video_capture.isOpened():
         video_capture.release()  # Ensure video capture is released
         logging.info("Camera released successfully")
-    cv2.destroyAllWindows()  # Close any open windows
+
+    # Remove the camera feed label
+    if 'camera_label' in globals():
+        camera_label.pack_forget()
+
     logging.info("Attendance stopped manually")
     messagebox.showinfo("Info", "Attendance has been stopped.")
 
 # GUI Setup
 root = tk.Tk()
 root.title("Face Recognition Attendance System")
-root.geometry("400x400")
+root.geometry("800x600")
 
 # Register User Section
 tk.Label(root, text="Register New User", font=("Arial", 14)).pack(pady=10)
@@ -280,5 +297,8 @@ try:
 except Exception as e:
     logging.error(f"Error loading known faces: {e}")
     messagebox.showerror("Error", f"Failed to load known faces: {e}")
+
+# Global variable for attendance session
+attendance_session = set()
 
 root.mainloop()
