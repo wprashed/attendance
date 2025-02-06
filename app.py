@@ -2,16 +2,13 @@ import cv2
 import face_recognition
 import numpy as np
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 import csv
 import logging
 import threading
 from PIL import Image, ImageTk
-from geopy.geocoders import Nominatim
-from fpdf import FPDF
-import pandas as pd
 
 # Set up logging
 logging.basicConfig(
@@ -62,9 +59,7 @@ def mark_attendance(name):
             lines = f.readlines()
             recorded_names = {}
             for line in lines:
-                stored_name, stored_time, stored_exit_time = (
-                    line.strip().split(",") if line.strip() else ("", "", "")
-                )
+                stored_name, stored_time, stored_exit_time = line.strip().split(",")
                 recorded_names[stored_name] = (stored_time, stored_exit_time)
 
             if name in recorded_names:
@@ -156,47 +151,6 @@ def view_attendance():
     except Exception as e:
         logging.error(f"Error viewing attendance: {e}")
         messagebox.showerror("Error", f"Failed to view attendance: {e}")
-
-
-# Function to download attendance
-def download_attendance():
-    save_path = filedialog.asksaveasfilename(
-        defaultextension=".csv",
-        filetypes=[("CSV Files", "*.csv")],
-        title="Save Attendance As",
-    )
-    if not save_path:  # User canceled the dialog
-        return
-
-    try:
-        # Check if the attendance file exists
-        if not os.path.exists("attendance.csv"):
-            messagebox.showinfo("Info", "No attendance records found.")
-            logging.info("No attendance records found during download.")
-            return
-
-        # Read the attendance file and write its content to the target file
-        with open("attendance.csv", "r") as source_file:
-            content = source_file.read()
-
-        with open(save_path, "w") as target_file:
-            target_file.write(content)
-
-        # Notify the user that the download was successful
-        messagebox.showinfo("Success", f"Attendance downloaded to {save_path}")
-        logging.info(f"Attendance downloaded to {save_path}")
-
-    except FileNotFoundError:
-        messagebox.showerror("Error", "Attendance file not found.")
-        logging.error("Attendance file not found during download.")
-
-    except PermissionError:
-        messagebox.showerror("Error", "Permission denied. Please check the save location.")
-        logging.error("Permission denied during attendance download.")
-
-    except Exception as e:
-        messagebox.showerror("Error", f"Failed to download attendance: {e}")
-        logging.error(f"Error downloading attendance: {e}")
 
 
 # Function to start face recognition
@@ -317,7 +271,6 @@ def update_camera_feed():
     except Exception as e:
         logging.error(f"Error updating camera feed: {e}")
 
-
 # Function to stop face recognition
 def stop_face_recognition():
     global is_running, video_capture, camera_label, camera_frame
@@ -335,48 +288,51 @@ def stop_face_recognition():
     messagebox.showinfo("Info", "Attendance has been stopped.")
 
 
-# Function to generate daily summary
-def generate_daily_summary():
+# Function to download attendance
+def download_attendance():
+    save_path = filedialog.asksaveasfilename(
+        defaultextension=".csv",
+        filetypes=[("CSV Files", "*.csv")],
+        title="Save Attendance As",
+    )
+    if not save_path:  # User canceled the dialog
+        return
+
     try:
-        today = datetime.now().strftime('%Y-%m-%d')
-        total_checkins = 0
-        total_checkouts = 0
-        incomplete_shifts = 0
+        # Check if the attendance file exists
+        if not os.path.exists("attendance.csv"):
+            messagebox.showinfo("Info", "No attendance records found.")
+            logging.info("No attendance records found during download.")
+            return
 
-        with open("attendance.csv", "r") as f:
-            reader = csv.reader(f)
-            next(reader)  # Skip header
-            for row in reader:
-                name, entry_time, exit_time = row
-                if entry_time.startswith(today):
-                    total_checkins += 1
-                    if exit_time:
-                        total_checkouts += 1
-                    else:
-                        incomplete_shifts += 1
+        # Read the attendance file and write its content to the target file
+        with open("attendance.csv", "r") as source_file:
+            content = source_file.read()
 
-        summary = (
-            f"Daily Attendance Summary ({today}):\n"
-            f"Total Check-Ins: {total_checkins}\n"
-            f"Total Check-Outs: {total_checkouts}\n"
-            f"Incomplete Shifts: {incomplete_shifts}"
-        )
-        messagebox.showinfo("Daily Summary", summary)
+        with open(save_path, "w") as target_file:
+            target_file.write(content)
+
+        # Notify the user that the download was successful
+        messagebox.showinfo("Success", f"Attendance downloaded to {save_path}")
+        logging.info(f"Attendance downloaded to {save_path}")
+
     except FileNotFoundError:
-        messagebox.showinfo("Info", "No attendance records found.")
-    except Exception as e:
-        logging.error(f"Error generating daily summary: {e}")
-        messagebox.showerror("Error", f"Failed to generate daily summary: {e}")
+        messagebox.showerror("Error", "Attendance file not found.")
+        logging.error("Attendance file not found during download.")
 
-def get_location():
-    geolocator = Nominatim(user_agent="attendance_system")
-    location = geolocator.geocode("Your Address Here")  # Replace with dynamic address
-    return f"{location.latitude}, {location.longitude}"
+    except PermissionError:
+        messagebox.showerror("Error", "Permission denied. Please check the save location.")
+        logging.error("Permission denied during attendance download.")
+
+    except Exception as e:
+        messagebox.showerror("Error", f"Failed to download attendance: {e}")
+        logging.error(f"Error downloading attendance: {e}")
+
 
 # GUI Setup
 root = tk.Tk()
 root.title("Face Recognition Attendance System")
-root.geometry("800x600")
+root.geometry("1000x800")
 
 # Register User Section
 register_frame = tk.Frame(root, padx=10, pady=10)
@@ -389,25 +345,16 @@ register_button = tk.Button(register_frame, text="Register", command=register_us
 register_button.pack(fill="x", pady=8)
 
 # Attendance Controls Section
-controls_frame = tk.Frame(root, padx=5, pady=5)  # Define controls_frame here
-controls_frame.pack(fill="x")  # Pack it to make it visible
-
-# Add buttons to controls_frame
+controls_frame = tk.Frame(root, padx=5, pady=5)
+controls_frame.pack(fill="x")
 view_button = tk.Button(controls_frame, text="View Attendance List", command=view_attendance)
 view_button.pack(side="left", padx=8)
-
 download_button = tk.Button(controls_frame, text="Download Attendance List", command=download_attendance)
 download_button.pack(side="left", padx=8)
-
 start_button = tk.Button(controls_frame, text="Start Taking Attendance", command=start_face_recognition)
 start_button.pack(side="left", padx=8)
-
 stop_button = tk.Button(controls_frame, text="Stop Taking Attendance", command=stop_face_recognition)
 stop_button.pack(side="left", padx=8)
-
-# Add the summary button to controls_frame
-summary_button = tk.Button(controls_frame, text="Generate Daily Summary", command=generate_daily_summary)
-summary_button.pack(side="left", padx=8)
 
 # Initialize global variables
 video_capture = None
