@@ -484,3 +484,75 @@
 2025-02-06 12:38:18,076 - INFO - Recognized and marked attendance for rashed
 2025-02-06 12:38:21,906 - INFO - Camera released successfully
 2025-02-06 12:38:21,907 - INFO - Attendance stopped manually
+2025-02-06 13:50:02,522 - INFO - Known faces loaded successfully
+2025-02-06 13:50:12,802 - INFO - Loaded face: Md Rashed Hossain
+2025-02-06 13:50:14,715 - INFO - Registered new user: Md Rashed Hossain
+2025-02-06 13:50:31,233 - INFO - Marked entry time for Md Rashed Hossain
+2025-02-06 13:50:32,733 - INFO - Recognized and marked attendance for Md Rashed Hossain
+2025-02-06 13:50:39,660 - INFO - Camera released successfully
+2025-02-06 13:50:39,660 - INFO - Attendance stopped manually
+2025-02-06 13:51:21,278 - INFO - Loaded face: Md Rashed Hossain
+2025-02-06 13:51:22,164 - INFO - Loaded face: Md Rashed Hossain
+2025-02-06 13:51:24,167 - INFO - Registered new user: Md Rashed Hossain
+2025-02-06 13:51:30,758 - INFO - Loaded face: Md Rashed Hossain
+2025-02-06 13:51:31,631 - INFO - Loaded face: Md Rashed Hossain
+2025-02-06 13:51:31,631 - INFO - Known faces loaded successfully
+2025-02-06 13:51:40,167 - INFO - Recognized and marked attendance for Md Rashed Hossain
+2025-02-06 13:52:29,391 - INFO - Camera released successfully
+2025-02-06 13:52:29,392 - INFO - Attendance stopped manually
+2025-02-06 13:52:50,515 - INFO - Loaded face: Md Rashed Hossain
+2025-02-06 13:52:51,388 - INFO - Loaded face: Md Rashed Hossain
+2025-02-06 13:52:51,389 - INFO - Known faces loaded successfully
+2025-02-06 13:53:10,183 - INFO - Recognized and marked attendance for Md Rashed Hossain
+2025-02-06 13:54:10,215 - INFO - Loaded face: Md Rashed Hossain
+2025-02-06 13:54:11,085 - INFO - Loaded face: Md Rashed Hossain
+2025-02-06 13:54:11,085 - INFO - Known faces loaded successfully
+2025-02-06 13:54:16,339 - INFO - Marked exit time for Md Rashed Hossain
+2025-02-06 13:54:20,716 - INFO - Recognized and marked attendance for Md Rashed Hossain
+2025-02-06 13:55:29,287 - INFO - Loaded face: Md Rashed Hossain
+2025-02-06 13:55:30,154 - INFO - Loaded face: Md Rashed Hossain
+2025-02-06 13:55:30,154 - INFO - Known faces loaded successfully
+2025-02-06 13:55:40,115 - INFO - Recognized and marked attendance for Md Rashed Hossain
+2025-02-06 13:56:49,249 - INFO - Known faces loaded successfully
+2025-02-06 13:57:00,175 - INFO - Loaded face: Rashed Hossain
+2025-02-06 13:57:02,708 - INFO - Registered new user: Rashed Hossain
+2025-02-06 13:57:05,703 - INFO - Marked entry time for Rashed Hossain
+2025-02-06 13:57:09,510 - INFO - Recognized and marked attendance for Rashed Hossain
+2025-02-06 13:58:21,069 - INFO - Loaded face: Rifat Haque
+2025-02-06 13:58:21,991 - INFO - Loaded face: Rashed Hossain
+2025-02-06 13:58:23,841 - INFO - Registered new user: Rifat Haque
+2025-02-06 13:58:28,500 - INFO - Marked entry time for Rifat Haque
+2025-02-06 13:58:48,527 - INFO - Recognized and marked attendance for Rifat Haque
+2025-02-06 15:40:51,505 - INFO - Loaded face: Rifat Haque
+2025-02-06 15:40:52,404 - INFO - Loaded face: Rashed Hossain
+2025-02-06 15:40:52,405 - INFO - Known faces loaded successfully
+2025-02-06 15:41:00,267 - INFO - Recognized and marked attendance for Rashed Hossain
+2025-02-06 15:43:56,919 - INFO - Loaded face: Rifat Haque
+2025-02-06 15:43:57,800 - INFO - Loaded face: Rashed Hossain
+2025-02-06 15:43:57,800 - INFO - Known faces loaded successfully
+2025-02-06 15:44:03,319 - INFO - Recognized and marked attendance for Rashed Hossain
+2025-02-06 15:45:56,734 - INFO - Loaded face: Rifat Haque
+2025-02-06 15:45:57,613 - INFO - Loaded face: Rashed Hossain
+2025-02-06 15:45:57,613 - INFO - Known faces loaded successfully
+2025-02-06 15:46:06,044 - INFO - Recognized and marked attendance for Rashed Hossain
+2025-02-06 15:48:21,529 - INFO - Loaded face: Rifat Haque
+2025-02-06 15:48:22,419 - INFO - Loaded face: Rashed Hossain
+2025-02-06 15:48:22,419 - INFO - Known faces loaded successfully
+2025-02-06 15:48:28,780 - INFO - Recognized and marked attendance for Rashed Hossain
+2025-02-06 15:49:26,074 - INFO - Loaded face: Rifat Haque
+2025-02-06 15:49:26,940 - INFO - Loaded face: Rashed Hossain
+2025-02-06 15:49:26,940 - INFO - Known faces loaded successfully
+2025-02-06 15:49:31,794 - INFO - Recognized and marked attendance for Rashed Hossain
+2025-02-06 15:50:08,758 - INFO - Known faces loaded successfully
+2025-02-06 15:50:12,118 - ERROR - Error updating camera feed: attempt to get argmin of an empty sequence
+2025-02-06 15:50:24,589 - INFO - Camera released successfully
+2025-02-06 15:50:24,592 - INFO - Attendance stopped manually
+2025-02-06 15:50:29,979 - ERROR - Error updating camera feed: attempt to get argmin of an empty sequence
+2025-02-06 15:53:12,298 - INFO - Known faces loaded successfully
+2025-02-06 15:53:17,406 - ERROR - Error updating camera feed: attempt to get argmin of an empty sequence
+2025-02-06 15:54:07,825 - INFO - Loaded face: RASHED HOSSAIN
+2025-02-06 15:54:09,855 - INFO - Registered new user: RASHED HOSSAIN
+2025-02-06 15:54:15,750 - INFO - Camera released successfully
+2025-02-06 15:54:15,751 - INFO - Attendance stopped manually
+2025-02-06 15:54:19,458 - INFO - Marked entry time for RASHED HOSSAIN
+2025-02-06 15:54:21,590 - INFO - Recognized and marked attendance for RASHED HOSSAIN
