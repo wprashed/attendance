@@ -219,3 +219,100 @@
 2025-02-05 19:38:09,556 - INFO - Recognized and marked attendance for Amir Hossain
 2025-02-05 19:38:09,668 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
 2025-02-05 19:38:11,288 - INFO - Recognized and marked attendance for Arifa Akter
+2025-02-06 11:50:09,206 - INFO - Loaded face: Amir Hossain
+2025-02-06 11:50:09,254 - INFO - Loaded face: Arifa Akter
+2025-02-06 11:50:10,148 - INFO - Loaded face: Arifa Akter
+2025-02-06 11:50:10,928 - INFO - Loaded face: rashed
+2025-02-06 11:50:11,610 - INFO - Loaded face: rashed
+2025-02-06 11:50:15,112 - INFO - Loaded face: Rifat Haque
+2025-02-06 11:50:15,199 - INFO - Loaded face: Parag Das
+2025-02-06 11:50:15,199 - INFO - Known faces loaded successfully
+2025-02-06 11:50:24,450 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:50:32,664 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:50:35,750 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:50:38,823 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:50:41,899 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:50:44,975 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:50:48,049 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:50:51,098 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:50:54,155 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:50:57,230 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:51:01,085 - INFO - Loaded face: Amir Hossain
+2025-02-06 11:51:01,131 - INFO - Loaded face: Arifa Akter
+2025-02-06 11:51:02,020 - INFO - Loaded face: Arifa Akter
+2025-02-06 11:51:02,837 - INFO - Loaded face: rashed
+2025-02-06 11:51:03,503 - INFO - Loaded face: rashed
+2025-02-06 11:51:06,890 - INFO - Loaded face: Rifat Haque
+2025-02-06 11:51:06,988 - INFO - Loaded face: Parag Das
+2025-02-06 11:51:06,989 - INFO - Known faces loaded successfully
+2025-02-06 11:51:14,566 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:51:22,775 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:51:25,855 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:51:28,928 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:51:32,000 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:51:35,073 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:51:38,145 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:51:41,221 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:51:44,294 - WARNING - Failed to capture frame. Attempting to reset camera...
+2025-02-06 11:52:01,594 - INFO - Loaded face: Amir Hossain
+2025-02-06 11:52:01,644 - INFO - Loaded face: Arifa Akter
+2025-02-06 11:52:02,557 - INFO - Loaded face: Arifa Akter
+2025-02-06 11:52:03,343 - INFO - Loaded face: rashed
+2025-02-06 11:52:04,012 - INFO - Loaded face: rashed
+2025-02-06 11:52:07,526 - INFO - Loaded face: Rifat Haque
+2025-02-06 11:52:07,618 - INFO - Loaded face: Parag Das
+2025-02-06 11:52:07,619 - INFO - Known faces loaded successfully
+2025-02-06 11:52:11,405 - ERROR - Error viewing attendance: not enough values to unpack (expected 3, got 2)
+2025-02-06 11:52:22,918 - ERROR - Error marking attendance: not enough values to unpack (expected 3, got 2)
+2025-02-06 11:52:23,983 - INFO - Recognized and marked attendance for rashed
+2025-02-06 11:53:16,571 - INFO - Loaded face: Amir Hossain
+2025-02-06 11:53:16,619 - INFO - Loaded face: Arifa Akter
+2025-02-06 11:53:17,510 - INFO - Loaded face: Arifa Akter
+2025-02-06 11:53:18,294 - INFO - Loaded face: rashed
+2025-02-06 11:53:18,962 - INFO - Loaded face: rashed
+2025-02-06 11:53:22,396 - INFO - Loaded face: Rifat Haque
+2025-02-06 11:53:22,479 - INFO - Loaded face: Parag Das
+2025-02-06 11:53:22,479 - INFO - Known faces loaded successfully
+2025-02-06 11:53:28,141 - INFO - Marked attendance for rashed
+2025-02-06 11:53:30,152 - INFO - Recognized and marked attendance for rashed
+2025-02-06 12:04:15,932 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:04:15,979 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:04:16,961 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:04:17,796 - INFO - Loaded face: rashed
+2025-02-06 12:04:18,474 - INFO - Loaded face: rashed
+2025-02-06 12:04:22,039 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:04:22,125 - INFO - Loaded face: Parag Das
+2025-02-06 12:04:22,125 - INFO - Known faces loaded successfully
+2025-02-06 12:04:33,927 - ERROR - Error marking attendance: not enough values to unpack (expected 3, got 1)
+2025-02-06 12:04:43,690 - INFO - Recognized and marked attendance for rashed
+2025-02-06 12:04:44,873 - ERROR - Error marking attendance: not enough values to unpack (expected 3, got 1)
+2025-02-06 12:04:47,105 - INFO - Recognized and marked attendance for Amir Hossain
+2025-02-06 12:05:18,359 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:05:18,408 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:05:19,324 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:05:20,119 - INFO - Loaded face: rashed
+2025-02-06 12:05:20,799 - INFO - Loaded face: rashed
+2025-02-06 12:05:24,244 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:05:24,328 - INFO - Loaded face: Parag Das
+2025-02-06 12:05:24,328 - INFO - Known faces loaded successfully
+2025-02-06 12:05:30,655 - INFO - Marked entry time for rashed
+2025-02-06 12:05:32,723 - INFO - Recognized and marked attendance for rashed
+2025-02-06 12:05:33,918 - INFO - Marked entry time for Amir Hossain
+2025-02-06 12:05:37,325 - INFO - Recognized and marked attendance for Amir Hossain
+2025-02-06 12:06:05,420 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:06:05,467 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:06:06,369 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:06:07,158 - INFO - Loaded face: rashed
+2025-02-06 12:06:07,831 - INFO - Loaded face: rashed
+2025-02-06 12:06:11,285 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:06:11,370 - INFO - Loaded face: Parag Das
+2025-02-06 12:06:11,370 - INFO - Known faces loaded successfully
+2025-02-06 12:06:19,439 - INFO - Recognized and marked attendance for rashed
+2025-02-06 12:06:41,399 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:06:41,447 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:06:42,348 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:06:43,130 - INFO - Loaded face: rashed
+2025-02-06 12:06:43,794 - INFO - Loaded face: rashed
+2025-02-06 12:06:47,289 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:06:47,373 - INFO - Loaded face: Parag Das
+2025-02-06 12:06:47,373 - INFO - Known faces loaded successfully
