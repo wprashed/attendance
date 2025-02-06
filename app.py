@@ -229,8 +229,20 @@ def update_camera_feed():
                 right *= 4
                 bottom *= 4
                 left *= 4
+
+                # Draw a rectangle around the face
                 cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
-                cv2.putText(frame, name, (left, top - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 2)
+
+                # Display the name or "Unknown" below the face
+                cv2.putText(
+                    frame,
+                    name,  # Display the name or "Unknown"
+                    (left, bottom + 30),  # Position below the rectangle
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.9,
+                    (255, 255, 255),  # White color
+                    2,
+                )
 
             # Convert the frame to an image compatible with tkinter
             img = Image.fromarray(rgb_frame)
@@ -244,7 +256,6 @@ def update_camera_feed():
         root.after(10, update_camera_feed)  # Update every 10ms
     except Exception as e:
         logging.error(f"Error updating camera feed: {e}")
-
 
 # Function to stop face recognition
 def stop_face_recognition():
