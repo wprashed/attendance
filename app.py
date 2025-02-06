@@ -54,29 +54,42 @@ def mark_attendance(name):
         timestamp = now.strftime('%Y-%m-%d %H:%M:%S')
         with open('attendance.csv', 'r+') as f:
             lines = f.readlines()
-            recorded_names = [line.split(',')[0] for line in lines]
-            if name not in recorded_names:
-                f.writelines(f'\n{name},{timestamp}')
-                logging.info(f"Marked attendance for {name}")
-                messagebox.showinfo("Success", f"Attendance marked for {name} at {timestamp}")
+            recorded_names = {}
+            for line in lines:
+                stored_name, stored_time, stored_exit_time = line.strip().split(',')
+                recorded_names[stored_name] = (stored_time, stored_exit_time)
+
+            if name in recorded_names:
+                # If the person has already checked in, check if they are checking out
+                check_in_time, exit_time = recorded_names[name]
+                if not exit_time:  # No exit time recorded yet
+                    check_in_datetime = datetime.strptime(check_in_time, '%Y-%m-%d %H:%M:%S')
+                    if (now - check_in_datetime).total_seconds() >= 8 * 3600:  # 8 hours later
+                        # Mark exit time
+                        recorded_names[name] = (check_in_time, timestamp)
+                        logging.info(f"Marked exit time for {name}")
+                        messagebox.showinfo("Success", f"Exit time marked for {name} at {timestamp}")
+                    else:
+                        messagebox.showinfo("Info", f"{name} cannot check out before 8 hours.")
+                else:
+                    messagebox.showinfo("Info", f"Exit time already marked for {name} at {exit_time}")
             else:
-                # Find the last attendance for the same user and check time difference
-                for line in lines:
-                    stored_name, stored_time = line.strip().split(',')
-                    if stored_name == name:
-                        last_time = datetime.strptime(stored_time, '%Y-%m-%d %H:%M:%S')
-                        time_diff = (now - last_time).total_seconds()
-                        if time_diff < 60:
-                            messagebox.showinfo("Duplicate Attendance", f"Attendance already marked for {name} at {stored_time}")
-                        else:
-                            f.writelines(f'\n{name},{timestamp}')
-                            logging.info(f"Marked attendance for {name}")
-                            messagebox.showinfo("Success", f"Attendance marked for {name} at {timestamp}")
-                        return
+                # First time marking attendance (entry time)
+                recorded_names[name] = (timestamp, "")
+                logging.info(f"Marked entry time for {name}")
+                messagebox.showinfo("Success", f"Entry time marked for {name} at {timestamp}")
+
+            # Write updated attendance records back to the file
+            f.seek(0)
+            f.truncate()
+            f.write("Name,Timestamp,ExitTime\n")
+            for name, (entry_time, exit_time) in recorded_names.items():
+                f.write(f"{name},{entry_time},{exit_time}\n")
+
     except FileNotFoundError:
         with open('attendance.csv', 'w') as f:
-            f.write("Name,Timestamp\n")
-        mark_attendance(name)
+            f.write("Name,Timestamp,ExitTime\n")
+            mark_attendance(name)
     except Exception as e:
         logging.error(f"Error marking attendance: {e}")
         messagebox.showerror("Error", f"Failed to mark attendance: {e}")
