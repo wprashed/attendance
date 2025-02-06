@@ -364,6 +364,38 @@ def generate_daily_summary():
 summary_button = tk.Button(controls_frame, text="Generate Daily Summary", command=generate_daily_summary)
 summary_button.pack(side="left", padx=8)
 
+LATE_THRESHOLD = timedelta(minutes=15)
+
+def mark_attendance(name):
+    try:
+        now = datetime.now()
+        timestamp = now.strftime('%Y-%m-%d %H:%M:%S')
+        expected_start_time = now.replace(hour=9, minute=0, second=0, microsecond=0)  # Example: 9 AM
+
+        with open('attendance.csv', 'r+') as f:
+            lines = f.readlines()
+            recorded_names = {}
+            for line in lines:
+                stored_name, stored_time, stored_exit_time = line.strip().split(',')
+                recorded_names[stored_name] = (stored_time, stored_exit_time)
+
+            if name not in recorded_names:
+                if now > expected_start_time + LATE_THRESHOLD:
+                    messagebox.showwarning("Late Check-In", f"{name} checked in late at {timestamp}")
+                recorded_names[name] = (timestamp, "")
+                logging.info(f"Marked entry time for {name}")
+                messagebox.showinfo("Success", f"Entry time marked for {name} at {timestamp}")
+
+            # Write updated attendance records back to the file
+            f.seek(0)
+            f.truncate()
+            f.write("Name,Timestamp,ExitTime\n")
+            for name, (entry_time, exit_time) in recorded_names.items():
+                f.write(f"{name},{entry_time},{exit_time}\n")
+    except Exception as e:
+        logging.error(f"Error marking attendance: {e}")
+        messagebox.showerror("Error", f"Failed to mark attendance: {e}")
+        
 # GUI Setup
 root = tk.Tk()
 root.title("Face Recognition Attendance System")
