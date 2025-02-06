@@ -316,3 +316,65 @@
 2025-02-06 12:06:47,289 - INFO - Loaded face: Rifat Haque
 2025-02-06 12:06:47,373 - INFO - Loaded face: Parag Das
 2025-02-06 12:06:47,373 - INFO - Known faces loaded successfully
+2025-02-06 12:11:37,821 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:11:37,870 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:11:38,759 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:11:39,533 - INFO - Loaded face: rashed
+2025-02-06 12:11:40,216 - INFO - Loaded face: rashed
+2025-02-06 12:11:43,646 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:11:43,732 - INFO - Loaded face: Parag Das
+2025-02-06 12:11:43,732 - INFO - Known faces loaded successfully
+2025-02-06 12:11:54,395 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:12,963 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:13:13,011 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:13:13,899 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:13:14,691 - INFO - Loaded face: rashed
+2025-02-06 12:13:15,351 - INFO - Loaded face: rashed
+2025-02-06 12:13:18,871 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:13:18,957 - INFO - Loaded face: Parag Das
+2025-02-06 12:13:18,957 - INFO - Known faces loaded successfully
+2025-02-06 12:13:24,112 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:25,228 - INFO - Marked entry time for rashed
+2025-02-06 12:13:26,979 - INFO - Recognized and marked attendance for rashed
+2025-02-06 12:13:26,983 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:28,088 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:29,186 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:30,284 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:31,371 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:32,478 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:33,567 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:34,665 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:35,752 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:36,856 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:37,947 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:39,050 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:40,139 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:41,242 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:42,368 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:43,464 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:44,563 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:45,654 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:46,755 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:47,844 - ERROR - Error in face recognition loop: Unknown C++ exception from OpenCV code
+2025-02-06 12:13:47,964 - INFO - Camera released successfully
+2025-02-06 12:13:47,965 - INFO - Attendance stopped manually
+2025-02-06 12:14:29,617 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:14:29,664 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:14:30,553 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:14:31,330 - INFO - Loaded face: rashed
+2025-02-06 12:14:31,979 - INFO - Loaded face: rashed
+2025-02-06 12:14:35,367 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:14:35,450 - INFO - Loaded face: Parag Das
+2025-02-06 12:14:35,450 - INFO - Known faces loaded successfully
+2025-02-06 12:14:45,578 - INFO - Recognized and marked attendance for rashed
+2025-02-06 12:18:35,362 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:18:35,410 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:18:36,320 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:18:37,111 - INFO - Loaded face: rashed
+2025-02-06 12:18:37,775 - INFO - Loaded face: rashed
+2025-02-06 12:18:41,217 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:18:41,300 - INFO - Loaded face: Parag Das
+2025-02-06 12:18:41,300 - INFO - Known faces loaded successfully
+2025-02-06 12:18:52,593 - INFO - Recognized and marked attendance for rashed
+2025-02-06 12:18:54,936 - INFO - Marked entry time for Amir Hossain
+2025-02-06 12:18:56,843 - INFO - Recognized and marked attendance for Amir Hossain
