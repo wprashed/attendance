@@ -556,3 +556,6 @@
 2025-02-06 15:54:15,751 - INFO - Attendance stopped manually
 2025-02-06 15:54:19,458 - INFO - Marked entry time for RASHED HOSSAIN
 2025-02-06 15:54:21,590 - INFO - Recognized and marked attendance for RASHED HOSSAIN
+2025-02-06 17:33:13,198 - INFO - Loaded face: RASHED HOSSAIN
+2025-02-06 17:33:13,199 - INFO - Known faces loaded successfully
+2025-02-06 17:33:25,406 - INFO - Recognized and marked attendance for RASHED HOSSAIN
