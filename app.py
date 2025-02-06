@@ -209,37 +209,51 @@ def update_camera_feed():
             face_locations = face_recognition.face_locations(rgb_small_frame)
             face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
 
-            for (top, right, bottom, left), face_encoding in zip(face_locations, face_encodings):
-                matches = face_recognition.compare_faces(known_face_encodings, face_encoding, tolerance=0.6)
-                name = "Unknown"
-                face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
-                best_match_index = np.argmin(face_distances)
-                if matches[best_match_index]:
-                    name = known_face_names[best_match_index]
-                    if name not in attendance_session:
-                        mark_attendance(name)
-                        attendance_session.add(name)
-                        logging.info(f"Recognized and marked attendance for {name}")
-
-                # Scale back the face locations to match the resized frame
-                top *= 4
-                right *= 4
-                bottom *= 4
-                left *= 4
-
-                # Draw a rectangle around the face
-                cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
-
-                # Display the name or "Unknown" below the face
+            # Check if any faces were detected
+            if len(face_locations) == 0:
+                # No faces detected, display "No Face Detected"
                 cv2.putText(
                     frame,
-                    name,  # Display the name or "Unknown"
-                    (left, bottom + 30),  # Position below the rectangle
+                    "No Face Detected",  # Display message
+                    (50, 50),  # Position in the top-left corner
                     cv2.FONT_HERSHEY_SIMPLEX,
-                    0.9,
-                    (255, 255, 255),  # White color
+                    1.0,
+                    (0, 0, 255),  # Red color
                     2,
                 )
+            else:
+                # Process each detected face
+                for (top, right, bottom, left), face_encoding in zip(face_locations, face_encodings):
+                    matches = face_recognition.compare_faces(known_face_encodings, face_encoding, tolerance=0.6)
+                    name = "Unknown"
+                    face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
+                    best_match_index = np.argmin(face_distances)
+                    if matches[best_match_index]:
+                        name = known_face_names[best_match_index]
+                        if name not in attendance_session:
+                            mark_attendance(name)
+                            attendance_session.add(name)
+                            logging.info(f"Recognized and marked attendance for {name}")
+
+                    # Scale back the face locations to match the resized frame
+                    top *= 4
+                    right *= 4
+                    bottom *= 4
+                    left *= 4
+
+                    # Draw a rectangle around the face
+                    cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
+
+                    # Display the name or "Unknown" below the face
+                    cv2.putText(
+                        frame,
+                        name,  # Display the name or "Unknown"
+                        (left, bottom + 30),  # Position below the rectangle
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.9,
+                        (255, 255, 255),  # White color
+                        2,
+                    )
 
             # Convert the frame to RGB for tkinter compatibility
             rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
