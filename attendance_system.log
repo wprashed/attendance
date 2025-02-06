@@ -174,3 +174,48 @@
 2025-02-05 16:14:46,566 - INFO - Recognized and marked attendance for rashed
 2025-02-05 16:14:51,689 - INFO - Marked attendance for Parag Das
 2025-02-05 16:14:56,268 - INFO - Recognized and marked attendance for Parag Das
+2025-02-05 19:32:56,675 - INFO - Loaded face: rashed
+2025-02-05 19:32:57,342 - INFO - Loaded face: rashed
+2025-02-05 19:33:00,868 - INFO - Loaded face: Rifat Haque
+2025-02-05 19:33:00,951 - INFO - Loaded face: Parag Das
+2025-02-05 19:33:00,952 - INFO - Known faces loaded successfully
+2025-02-05 19:33:10,689 - INFO - Loaded face: Arifa Akter
+2025-02-05 19:33:11,466 - INFO - Loaded face: rashed
+2025-02-05 19:33:12,115 - INFO - Loaded face: rashed
+2025-02-05 19:33:15,576 - INFO - Loaded face: Rifat Haque
+2025-02-05 19:33:15,662 - INFO - Loaded face: Parag Das
+2025-02-05 19:33:17,277 - INFO - Registered new user: Arifa Akter
+2025-02-05 19:33:25,846 - INFO - Loaded face: Amir Hossain
+2025-02-05 19:33:26,736 - INFO - Loaded face: Arifa Akter
+2025-02-05 19:33:27,493 - INFO - Loaded face: rashed
+2025-02-05 19:33:28,139 - INFO - Loaded face: rashed
+2025-02-05 19:33:31,620 - INFO - Loaded face: Rifat Haque
+2025-02-05 19:33:31,706 - INFO - Loaded face: Parag Das
+2025-02-05 19:33:33,758 - INFO - Registered new user: Amir Hossain
+2025-02-05 19:33:41,965 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 19:33:43,076 - INFO - Recognized and marked attendance for rashed
+2025-02-05 19:33:44,270 - INFO - Marked attendance for Amir Hossain
+2025-02-05 19:33:47,094 - INFO - Recognized and marked attendance for Amir Hossain
+2025-02-05 19:33:48,154 - INFO - Marked attendance for Arifa Akter
+2025-02-05 19:33:52,461 - INFO - Recognized and marked attendance for Arifa Akter
+2025-02-05 19:37:31,973 - INFO - Loaded face: Amir Hossain
+2025-02-05 19:37:32,884 - INFO - Loaded face: Arifa Akter
+2025-02-05 19:37:33,659 - INFO - Loaded face: rashed
+2025-02-05 19:37:34,321 - INFO - Loaded face: rashed
+2025-02-05 19:37:37,801 - INFO - Loaded face: Rifat Haque
+2025-02-05 19:37:37,889 - INFO - Loaded face: Parag Das
+2025-02-05 19:37:37,889 - INFO - Known faces loaded successfully
+2025-02-05 19:37:48,052 - INFO - Loaded face: Amir Hossain
+2025-02-05 19:37:48,102 - INFO - Loaded face: Arifa Akter
+2025-02-05 19:37:49,015 - INFO - Loaded face: Arifa Akter
+2025-02-05 19:37:49,817 - INFO - Loaded face: rashed
+2025-02-05 19:37:50,499 - INFO - Loaded face: rashed
+2025-02-05 19:37:54,049 - INFO - Loaded face: Rifat Haque
+2025-02-05 19:37:54,132 - INFO - Loaded face: Parag Das
+2025-02-05 19:37:55,835 - INFO - Registered new user: Arifa Akter
+2025-02-05 19:38:03,723 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 19:38:06,071 - INFO - Recognized and marked attendance for rashed
+2025-02-05 19:38:06,900 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 19:38:09,556 - INFO - Recognized and marked attendance for Amir Hossain
+2025-02-05 19:38:09,668 - ERROR - Error marking attendance: not enough values to unpack (expected 2, got 1)
+2025-02-05 19:38:11,288 - INFO - Recognized and marked attendance for Arifa Akter
