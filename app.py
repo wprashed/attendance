@@ -172,7 +172,7 @@ def start_face_recognition():
 
     # Create a frame to hold the camera feed
     global camera_frame
-    camera_frame = tk.Frame(root, width=640, height=480, bg="black")
+    camera_frame = tk.Frame(root, width=950, height=715, bg="black")
     camera_frame.pack(pady=10)
 
     # Create a label to display the camera feed
@@ -193,7 +193,7 @@ def update_camera_feed():
         ret, frame = video_capture.read()
         if ret:
             # Resize the frame to fit the GUI (e.g., 640x480)
-            target_width, target_height = 640, 480
+            target_width, target_height = 950, 715
             aspect_ratio = frame.shape[1] / frame.shape[0]
             if frame.shape[1] > target_width or frame.shape[0] > target_height:
                 new_width = int(target_height * aspect_ratio)
@@ -202,9 +202,6 @@ def update_camera_feed():
                     new_width = target_width
                     new_height = int(target_width / aspect_ratio)
                 frame = cv2.resize(frame, (new_width, new_height))
-
-            # Convert the frame to RGB for tkinter compatibility
-            rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
             # Perform face recognition on the resized frame
             small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)  # Downscale for faster processing
@@ -243,6 +240,9 @@ def update_camera_feed():
                     (255, 255, 255),  # White color
                     2,
                 )
+
+            # Convert the frame to RGB for tkinter compatibility
+            rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
             # Convert the frame to an image compatible with tkinter
             img = Image.fromarray(rgb_frame)
@@ -318,7 +318,7 @@ def download_attendance():
 # GUI Setup
 root = tk.Tk()
 root.title("Face Recognition Attendance System")
-root.geometry("800x600")
+root.geometry("1000x800")
 
 # Register User Section
 register_frame = tk.Frame(root, padx=10, pady=10)
