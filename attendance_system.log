@@ -378,3 +378,109 @@
 2025-02-06 12:18:52,593 - INFO - Recognized and marked attendance for rashed
 2025-02-06 12:18:54,936 - INFO - Marked entry time for Amir Hossain
 2025-02-06 12:18:56,843 - INFO - Recognized and marked attendance for Amir Hossain
+2025-02-06 12:21:18,167 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:21:18,214 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:21:19,106 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:21:19,877 - INFO - Loaded face: rashed
+2025-02-06 12:21:20,528 - INFO - Loaded face: rashed
+2025-02-06 12:21:24,049 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:21:24,136 - INFO - Loaded face: Parag Das
+2025-02-06 12:21:24,136 - INFO - Known faces loaded successfully
+2025-02-06 12:21:33,792 - INFO - Recognized and marked attendance for rashed
+2025-02-06 12:21:38,329 - INFO - Camera released successfully
+2025-02-06 12:21:38,329 - INFO - Attendance stopped manually
+2025-02-06 12:21:42,622 - INFO - Attendance stopped manually
+2025-02-06 12:21:46,088 - INFO - Attendance stopped manually
+2025-02-06 12:25:18,920 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:25:18,969 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:25:19,865 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:25:20,652 - INFO - Loaded face: rashed
+2025-02-06 12:25:21,324 - INFO - Loaded face: rashed
+2025-02-06 12:25:24,792 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:25:24,879 - INFO - Loaded face: Parag Das
+2025-02-06 12:25:24,879 - INFO - Known faces loaded successfully
+2025-02-06 12:25:36,918 - INFO - Recognized and marked attendance for rashed
+2025-02-06 12:25:46,985 - INFO - Camera released successfully
+2025-02-06 12:25:46,986 - INFO - Attendance stopped manually
+2025-02-06 12:25:58,720 - INFO - Camera released successfully
+2025-02-06 12:25:58,721 - INFO - Attendance stopped manually
+2025-02-06 12:27:25,726 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:27:25,773 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:27:26,677 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:27:27,458 - INFO - Loaded face: rashed
+2025-02-06 12:27:28,134 - INFO - Loaded face: rashed
+2025-02-06 12:27:31,575 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:27:31,658 - INFO - Loaded face: Parag Das
+2025-02-06 12:27:31,658 - INFO - Known faces loaded successfully
+2025-02-06 12:27:55,496 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:27:55,542 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:27:56,440 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:27:57,217 - INFO - Loaded face: rashed
+2025-02-06 12:27:57,874 - INFO - Loaded face: rashed
+2025-02-06 12:28:01,308 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:28:01,392 - INFO - Loaded face: Parag Das
+2025-02-06 12:28:01,392 - INFO - Known faces loaded successfully
+2025-02-06 12:28:53,967 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:28:54,015 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:28:54,910 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:28:55,690 - INFO - Loaded face: rashed
+2025-02-06 12:28:56,342 - INFO - Loaded face: rashed
+2025-02-06 12:28:59,770 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:28:59,857 - INFO - Loaded face: Parag Das
+2025-02-06 12:28:59,857 - INFO - Known faces loaded successfully
+2025-02-06 12:29:31,507 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:29:31,555 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:29:32,452 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:29:33,235 - INFO - Loaded face: rashed
+2025-02-06 12:29:33,891 - INFO - Loaded face: rashed
+2025-02-06 12:29:37,274 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:29:37,356 - INFO - Loaded face: Parag Das
+2025-02-06 12:29:37,356 - INFO - Known faces loaded successfully
+2025-02-06 12:29:56,753 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:29:56,799 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:29:57,688 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:29:58,461 - INFO - Loaded face: rashed
+2025-02-06 12:29:59,120 - INFO - Loaded face: rashed
+2025-02-06 12:30:02,568 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:30:02,652 - INFO - Loaded face: Parag Das
+2025-02-06 12:30:02,652 - INFO - Known faces loaded successfully
+2025-02-06 12:30:24,956 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:30:25,003 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:30:25,893 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:30:26,669 - INFO - Loaded face: rashed
+2025-02-06 12:30:27,329 - INFO - Loaded face: rashed
+2025-02-06 12:30:30,739 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:30:30,820 - INFO - Loaded face: Parag Das
+2025-02-06 12:30:30,820 - INFO - Known faces loaded successfully
+2025-02-06 12:30:49,047 - INFO - Recognized and marked attendance for rashed
+2025-02-06 12:30:53,333 - INFO - Recognized and marked attendance for Amir Hossain
+2025-02-06 12:31:00,565 - INFO - Camera released successfully
+2025-02-06 12:31:00,565 - INFO - Attendance stopped manually
+2025-02-06 12:32:48,915 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:32:48,962 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:32:49,854 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:32:50,635 - INFO - Loaded face: rashed
+2025-02-06 12:32:51,312 - INFO - Loaded face: rashed
+2025-02-06 12:32:54,787 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:32:54,876 - INFO - Loaded face: Parag Das
+2025-02-06 12:32:54,876 - INFO - Known faces loaded successfully
+2025-02-06 12:35:12,053 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:35:12,105 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:35:13,014 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:35:13,819 - INFO - Loaded face: rashed
+2025-02-06 12:35:14,505 - INFO - Loaded face: rashed
+2025-02-06 12:35:18,044 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:35:18,130 - INFO - Loaded face: Parag Das
+2025-02-06 12:35:18,130 - INFO - Known faces loaded successfully
+2025-02-06 12:37:54,941 - INFO - Loaded face: Amir Hossain
+2025-02-06 12:37:54,987 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:37:55,896 - INFO - Loaded face: Arifa Akter
+2025-02-06 12:37:56,674 - INFO - Loaded face: rashed
+2025-02-06 12:37:57,340 - INFO - Loaded face: rashed
+2025-02-06 12:38:01,010 - INFO - Loaded face: Rifat Haque
+2025-02-06 12:38:01,098 - INFO - Loaded face: Parag Das
+2025-02-06 12:38:01,098 - INFO - Known faces loaded successfully
+2025-02-06 12:38:12,175 - INFO - Attendance downloaded to /Users/rashed/Pictures/attandance.csv
+2025-02-06 12:38:18,076 - INFO - Recognized and marked attendance for rashed
+2025-02-06 12:38:21,906 - INFO - Camera released successfully
+2025-02-06 12:38:21,907 - INFO - Attendance stopped manually
