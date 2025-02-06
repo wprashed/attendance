@@ -328,6 +328,41 @@ def download_attendance():
         messagebox.showerror("Error", f"Failed to download attendance: {e}")
         logging.error(f"Error downloading attendance: {e}")
 
+def generate_daily_summary():
+    try:
+        today = datetime.now().strftime('%Y-%m-%d')
+        total_checkins = 0
+        total_checkouts = 0
+        incomplete_shifts = 0
+
+        with open("attendance.csv", "r") as f:
+            reader = csv.reader(f)
+            next(reader)  # Skip header
+            for row in reader:
+                name, entry_time, exit_time = row
+                if entry_time.startswith(today):
+                    total_checkins += 1
+                    if exit_time:
+                        total_checkouts += 1
+                    else:
+                        incomplete_shifts += 1
+
+        summary = (
+            f"Daily Attendance Summary ({today}):\n"
+            f"Total Check-Ins: {total_checkins}\n"
+            f"Total Check-Outs: {total_checkouts}\n"
+            f"Incomplete Shifts: {incomplete_shifts}"
+        )
+        messagebox.showinfo("Daily Summary", summary)
+    except FileNotFoundError:
+        messagebox.showinfo("Info", "No attendance records found.")
+    except Exception as e:
+        logging.error(f"Error generating daily summary: {e}")
+        messagebox.showerror("Error", f"Failed to generate daily summary: {e}")
+
+# Add a button to trigger the summary
+summary_button = tk.Button(controls_frame, text="Generate Daily Summary", command=generate_daily_summary)
+summary_button.pack(side="left", padx=8)
 
 # GUI Setup
 root = tk.Tk()
