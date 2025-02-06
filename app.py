@@ -11,8 +11,11 @@ import threading
 from PIL import Image, ImageTk
 
 # Set up logging
-logging.basicConfig(filename='attendance_system.log', level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    filename="attendance_system.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
 
 # Path to the directory containing known faces
 KNOWN_FACES_DIR = "known_faces"
@@ -46,23 +49,24 @@ def load_known_faces():
                 except Exception as e:
                     logging.error(f"Error loading image {image_path}: {e}")
 
+
 # Function to mark attendance in a CSV file
 def mark_attendance(name):
     try:
         now = datetime.now()
-        timestamp = now.strftime('%Y-%m-%d %H:%M:%S')
-        with open('attendance.csv', 'r+') as f:
+        timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+        with open("attendance.csv", "r+") as f:
             lines = f.readlines()
             recorded_names = {}
             for line in lines:
-                stored_name, stored_time, stored_exit_time = line.strip().split(',')
+                stored_name, stored_time, stored_exit_time = line.strip().split(",")
                 recorded_names[stored_name] = (stored_time, stored_exit_time)
 
             if name in recorded_names:
                 # If the person has already checked in, check if they are checking out
                 check_in_time, exit_time = recorded_names[name]
                 if not exit_time:  # No exit time recorded yet
-                    check_in_datetime = datetime.strptime(check_in_time, '%Y-%m-%d %H:%M:%S')
+                    check_in_datetime = datetime.strptime(check_in_time, "%Y-%m-%d %H:%M:%S")
                     if (now - check_in_datetime).total_seconds() >= 8 * 3600:  # 8 hours later
                         # Mark exit time
                         recorded_names[name] = (check_in_time, timestamp)
@@ -86,12 +90,13 @@ def mark_attendance(name):
                 f.write(f"{name},{entry_time},{exit_time}\n")
 
     except FileNotFoundError:
-        with open('attendance.csv', 'w') as f:
+        with open("attendance.csv", "w") as f:
             f.write("Name,Timestamp,ExitTime\n")
             mark_attendance(name)
     except Exception as e:
         logging.error(f"Error marking attendance: {e}")
         messagebox.showerror("Error", f"Failed to mark attendance: {e}")
+
 
 # Function to register a new user
 def register_user():
@@ -101,7 +106,7 @@ def register_user():
         return
     file_path = filedialog.askopenfilename(
         title="Select Image",
-        filetypes=[("Image Files", "*.jpg *.jpeg *.png")]
+        filetypes=[("Image Files", "*.jpg *.jpeg *.png")],
     )
     if not file_path:
         messagebox.showerror("Error", "No image selected.")
@@ -117,6 +122,7 @@ def register_user():
     except Exception as e:
         logging.error(f"Error registering user: {e}")
         messagebox.showerror("Error", f"Failed to register user: {e}")
+
 
 # Function to view attendance records
 def view_attendance():
@@ -145,6 +151,7 @@ def view_attendance():
     except Exception as e:
         logging.error(f"Error viewing attendance: {e}")
         messagebox.showerror("Error", f"Failed to view attendance: {e}")
+
 
 # Function to start face recognition
 def start_face_recognition():
@@ -175,6 +182,7 @@ def start_face_recognition():
 
     # Start updating the camera feed
     update_camera_feed()
+
 
 def update_camera_feed():
     global is_running, video_capture, camera_label
@@ -237,6 +245,7 @@ def update_camera_feed():
     except Exception as e:
         logging.error(f"Error updating camera feed: {e}")
 
+
 # Function to stop face recognition
 def stop_face_recognition():
     global is_running, video_capture, camera_label, camera_frame
@@ -246,19 +255,20 @@ def stop_face_recognition():
         logging.info("Camera released successfully")
 
     # Remove the camera feed frame and label
-    if 'camera_frame' in globals():
+    if "camera_frame" in globals():
         camera_frame.pack_forget()
         camera_label.pack_forget()
 
     logging.info("Attendance stopped manually")
     messagebox.showinfo("Info", "Attendance has been stopped.")
 
+
+# Function to download attendance
 def download_attendance():
-    # Open a dialog to select the save location
     save_path = filedialog.asksaveasfilename(
         defaultextension=".csv",
         filetypes=[("CSV Files", "*.csv")],
-        title="Save Attendance As"
+        title="Save Attendance As",
     )
     if not save_path:  # User canceled the dialog
         return
@@ -293,6 +303,7 @@ def download_attendance():
         messagebox.showerror("Error", f"Failed to download attendance: {e}")
         logging.error(f"Error downloading attendance: {e}")
 
+
 # GUI Setup
 root = tk.Tk()
 root.title("Face Recognition Attendance System")
@@ -311,9 +322,9 @@ register_button.pack(fill="x", pady=8)
 # Attendance Controls Section
 controls_frame = tk.Frame(root, padx=5, pady=5)
 controls_frame.pack(fill="x")
-view_button = tk.Button(controls_frame, text="View Attendance List's", command=view_attendance)
+view_button = tk.Button(controls_frame, text="View Attendance List", command=view_attendance)
 view_button.pack(side="left", padx=8)
-download_button = tk.Button(controls_frame, text="Download Attendance List's", command=lambda: None)
+download_button = tk.Button(controls_frame, text="Download Attendance List", command=download_attendance)
 download_button.pack(side="left", padx=8)
 start_button = tk.Button(controls_frame, text="Start Taking Attendance", command=start_face_recognition)
 start_button.pack(side="left", padx=8)
